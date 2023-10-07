@@ -1,0 +1,57 @@
+// RESET PARTIAL for general styling
+
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body:not(i) {
+  color: $--clr-black;
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: $--clr-black;
+}
+
+img {
+  display: block;
+}
+
+#container {
+  width: 100%;
+  @include flex-align();
+  flex-flow: column;
+}

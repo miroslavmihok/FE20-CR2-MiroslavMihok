@@ -1,0 +1,62 @@
+// Page footer styling
+
+@import "variables";
+
+footer {
+    width: 100%;
+    background-color: $--clr-darkgrey;
+    @include flex-align();
+    flex-flow: column;
+    justify-content: space-between;
+    flex: 0;
+    text-align: center;
+    padding: 2rem 0 0.5rem 0;
+
+    .footer_top {
+        .footer__socials {
+
+            button {
+                height: 2rem;
+                width: 2rem;
+                background-color: transparent;
+                border: 1px solid $--clr-grey-transparent;
+                border-radius: 0.3rem;
+
+                i {
+                    color: $--clr-white;
+                }
+            }
+        }
+    
+        .footer__newsletter {
+            color: $--clr-white;
+            margin: 1rem 0 3rem 0;
+            font-size: 0.8rem;
+
+            input {
+                height: 1.5rem;
+                width: 35%;
+                border: none;
+                padding: 0 0.7rem;
+                border-radius: 0.3rem;
+            }
+
+            button {
+                padding: 0.3rem;
+                font-size: 0.9rem;
+                color: $--clr-white;
+                background-color: transparent;
+                border: 1px solid $--clr-grey-transparent;
+                border-radius: 0.3rem;
+            }
+        }
+    }
+
+    .footer__copyright {
+        color: $--clr-white;
+        
+        span {
+            font-size: 0.8rem;
+        }
+    }
+}

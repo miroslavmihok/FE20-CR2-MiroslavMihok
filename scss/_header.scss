@@ -1,0 +1,81 @@
+// Page header styling
+
+@import "variables";
+
+header {
+  width: 100%;
+  flex: 0;
+
+  nav {
+    background-color: $--clr-darkgrey;
+    @include flex-align();
+    justify-content: space-between;
+    padding: 0.8rem;
+
+    .nav__left {
+      @include flex-align();
+
+      #header__logo {
+        font-size: 1.5rem;
+        color: $--clr-white;
+        margin: 0 1rem;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+        color: $--clr-white;
+        margin: 0 1rem 0 0;
+      }
+
+      ul {
+        @include flex-align();
+        gap: 1rem;
+        margin: 0;
+        
+        a {
+            color: $--clr-lightgrey;
+        }
+      }
+    }
+
+    .nav__right {
+      #header__bell {
+        @include flex-align();
+        font-size: 1rem;
+        color: $--clr-white;
+        margin: 0 1rem 0 1rem;
+
+        #bell_count {
+          width: 1rem;
+          height: 1rem;
+          @include flex-align();
+          justify-content: center;
+          background-color: $--clr-red;
+          font-size: 0.7rem;
+          border: none;
+          border-radius: 50%;
+          padding: 0.3rem;
+          margin: 0 0 0 0.5rem;
+        }
+      }
+    }
+  }
+
+  .hero {
+    width: 100%;
+    background: url("../assets/converted_final/webp/todo.webp") no-repeat center
+      center/cover;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      background-color: $--clr-grey-transparent;
+      padding: 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      color: $--clr-white;
+    }
+  }
+}

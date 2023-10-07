@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Website to help you plan all your tasks for the current and following weeks."
+    />
+    <!-- CSS link -->
+    <link rel="stylesheet" href="./scss/styles.css" />
+    <!-- Bootstrap link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- Fontawesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>MyPlanner</title>
+  </head>
+  <body>
+    <!-- start of BODY CONTAINER -->
+    <div id="container">
+      <!-- start of HEADER SECTION -->
+      <header>
+        <nav>
+          <div class="nav__left">
+            <i class="fa-solid fa-list-check" id="header__logo"></i>
+            <h1>MyPlanner</h1>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Tasks</a></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+          </div>
+          <div class="nav__right">
+            <i class="fa-solid fa-bell" id="header__bell">
+              <span id="bell_count">1</span>
+            </i>
+          </div>
+        </nav>
+        <section class="hero">
+          <h2>Weekly planner</h2>
+        </section>
+      </header>
+      <!-- end of HEADER SECTION -->
+      <main>
+        <!-- start of MAIN CONTAINER -->
+        <div class="container">
+          <!-- start of MAIN HEADER SECTION -->
+          <div class="container__header">
+            <h3>Weekly Tasks</h3>
+            <div class="container__header_sorting">
+              <select name="select_priority" id="select_priority" aria-label="select a priority">
+                <option value="none" selected hidden>Sort by priority</option>
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+              </select>
+              <i class="fa-solid fa-arrow-down-short-wide" id="filter-icon"></i>
+            </div>
+          </div>
+          <!-- end of MAIN HEADER SECTION -->
+          <!-- start of MAIN BODY SECTION -->
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-center pb-5 pt-5"
+            id="container__body"
+          >
+          <!-- start of CARD LAYOUT -->
+            <div class="todotask__card">
+              <!-- start of CARD HEADER -->
+              <div class="card__header">
+                <div class="card__header_task">
+                  <span>Task</span>
+                </div>
+                <div class="card__header_icons">
+                  <a href="#" aria-label="Bookmark task"><i class="fa-regular fa-bookmark"></i></a>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+              <!-- end of CARD HEADER -->
+              <!-- start of CARD MAIN -->
+              <div class="card__main">
+                <img
+                  src="./assets/Converted_final/webp/groceries.webp"
+                  alt="groceries"
+                />
+                <h4>Buy groceries</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+                  asperiores.
+                </p>
+                <hr />
+              </div>
+              <!-- end of CARD MAIN -->
+              <!-- start of CARD INFO -->
+              <div class="card__info">
+                <div class="card__info_priority">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span
+                    >Priority level: <span class="priority_level">0</span></span
+                  >
+                </div>
+                <div class="card__info_deadline">
+                  <i class="fa-regular fa-calendar-days"></i>
+                  <span
+                    >Deadline: <span id="deadline_date">27.01.2022</span></span
+                  >
+                </div>
+                <hr />
+              </div>
+              <!-- end of CARD INFO -->
+              <!-- start of CARD BUTTONS -->
+              <div class="card__buttons">
+                <button class="button_delete" title="deleteButton">
+                  <i class="fa-solid fa-trash-can" style="color: #ffffff"></i>
+                  Delete
+                </button>
+                <button class="button_done" title="doneButton">
+                  <i
+                    class="fa-regular fa-circle-check"
+                    style="color: #ffffff"
+                  ></i>
+                  Done
+                </button>
+              </div>
+              <!-- end of CARD BUTTONS -->
+            </div>
+            <!-- end of CARD LAYOUT -->
+          </div>
+          <!-- end of MAIN BODY SECTION -->
+        </div>
+        <!-- end of MAIN CONTAINER -->
+      </main>
+      <!-- start of FOOTER -->
+      <footer>
+        <div class="footer_top">
+          <div class="footer__socials">
+            <button><i class="fa-brands fa-facebook-f" title="facebook"></i></button>
+            <button><i class="fa-brands fa-twitter" title="twitter"></i></button>
+            <button><i class="fa-brands fa-google" title="google"></i></button>
+            <button><i class="fa-brands fa-instagram" title="instagram"></i></button>
+            <button><i class="fa-brands fa-linkedin-in" title="linkedin"></i></button>
+            <button><i class="fa-brands fa-github" title="github"></i></button>
+          </div>
+          <div class="footer__newsletter">
+            <label for="newsletterEmail">Sign up for our newsletter</label>
+            <input type="email" name="newsletterEmail" id="newsletterEmail" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+        <div class="footer__copyright">
+          <span>&copy 2023 Copyright: Miroslav Mihok</span>
+        </div>
+      </footer>
+      <!-- end of FOOTER -->
+    </div>
+    <!-- end of BODY CONTAINER -->
+    <!-- import of JS files -->
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

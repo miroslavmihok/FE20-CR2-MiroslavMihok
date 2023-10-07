@@ -1,0 +1,24 @@
+// COLORS
+
+$--clr-white: white;
+$--clr-lightgrey: lightgrey;
+$--clr-grey-transparent: rgba(128, 128, 128, 0.668);
+$--clr-grey: #495057;
+$--clr-darkgrey: #212529;
+$--clr-black: black;
+
+$--clr-mediumturquoise: mediumturquoise;
+$--clr-green: #8ac926;
+$--clr-yellow: #ffca3a;
+$--clr-red: #ff595e;
+
+// SHADOW
+
+$--shadow-card: 0px 0px 15px 3px rgba(62, 66, 66, 0.22);
+
+// MIXINS
+
+@mixin flex-align() {
+    display: flex;
+    align-items: center;
+}

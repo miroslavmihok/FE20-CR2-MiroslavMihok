@@ -1,0 +1,24 @@
+// Main header styles (inside Main)
+
+@import "variables";
+
+.container__header {
+    width: 100%;
+    height: fit-content;
+    @include flex-align();
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    .container__header_sorting {
+
+        #select_priority {
+            border: none;
+            margin-right: 1rem;
+            padding: 0.2rem;
+        }
+
+        span {
+            margin-right: 1rem;
+        }
+    }
+}
