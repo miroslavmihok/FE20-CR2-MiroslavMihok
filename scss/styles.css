@@ -64,9 +64,23 @@ header nav {
   justify-content: space-between;
   padding: 0.8rem;
 }
+@media (max-width: 400px) {
+  header nav {
+    height: -moz-fit-content;
+    height: fit-content;
+    display: block;
+    text-align: center;
+  }
+}
 header nav .nav__left {
   display: flex;
   align-items: center;
+}
+@media (max-width: 400px) {
+  header nav .nav__left {
+    display: block;
+    text-align: center;
+  }
 }
 header nav .nav__left #header__logo {
   font-size: 1.5rem;
@@ -83,6 +97,11 @@ header nav .nav__left ul {
   align-items: center;
   gap: 1rem;
   margin: 0;
+}
+@media (max-width: 400px) {
+  header nav .nav__left ul {
+    justify-content: center;
+  }
 }
 header nav .nav__left ul a {
   color: lightgrey;

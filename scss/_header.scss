@@ -11,9 +11,18 @@ header {
     @include flex-align();
     justify-content: space-between;
     padding: 0.8rem;
+    @media (max-width: 400px) {
+      height: fit-content;
+      display: block;
+      text-align: center;
+    }
 
     .nav__left {
       @include flex-align();
+      @media (max-width: 400px) {
+        display: block;
+        text-align: center;
+      }
 
       #header__logo {
         font-size: 1.5rem;
@@ -31,9 +40,13 @@ header {
         @include flex-align();
         gap: 1rem;
         margin: 0;
+        @media (max-width: 400px) {
+          justify-content: center;
+        }
         
+
         a {
-            color: $--clr-lightgrey;
+          color: $--clr-lightgrey;
         }
       }
     }
