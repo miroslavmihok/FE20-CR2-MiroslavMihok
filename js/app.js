@@ -32,8 +32,8 @@ const createTodos = (arr) => {
               <div class="card__deleted">
                 <p>Do you really want to delete "${item.name}"?</p>
                 <div class="card_delete_buttons">
-                  <button class="delete-btn">Yes</button>
-                  <button class="delete-btn">No</button>
+                  <button class="delete-btn" title="deleteYesBtn">Yes</button>
+                  <button class="delete-btn" title="deleteNoBtn">No</button>
                 </div>
               </div>
               <div class="card__completed">
@@ -64,7 +64,13 @@ const createTodos = (arr) => {
               <div class="card__info_priority">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <span
-                  >Priority level: <span class="priority_level" style="background-color: ${priorityBgColor};">${item.priority}</span></span
+                  >Priority level: 
+                  <button class="priority_level_down"
+                      >-</button>
+                  <span class="priority_level" style="background-color: ${priorityBgColor};">${item.priority}</span>
+                  <button class="priority_level_up"
+                    >+</button>
+                </span
                 >
               </div>
               <div class="card__info_deadline">
@@ -93,8 +99,6 @@ const createTodos = (arr) => {
       })
       .join("");
   }
-
-  console.log(arrStr);
 
   // function to create a new Date for Deadlines
 
@@ -147,32 +151,45 @@ const createTodos = (arr) => {
   function attachButtonListeners(arr) {
     // DECLARATION OF PRIORITY buttons
     const priorityBtns = document.querySelectorAll(".priority_level");
+    const increaseBtn = document.querySelectorAll(".priority_level_up");
+    const decreaseBtn = document.querySelectorAll(".priority_level_down");
 
-    priorityBtns.forEach((btn, i) => {
+    increaseBtn.forEach((btn, i) => {
       btn.addEventListener("click", function () {
-        increasePriority(i);
-
-        // background-color logic (works when page loaded and after sorting is applied)
-        // background-color logic when sorting is applied is in the generateTodo function
-        let currentPriority = arr[i].priority;
-
-        if (currentPriority <= 1) {
-          btn.style.backgroundColor = "#8ac926";
-        } else if (currentPriority <= 3) {
-          btn.style.backgroundColor = "#ffca3a";
-        } else {
-          btn.style.backgroundColor = "#ff595e";
-        }
+        changePriorityLevel(i, "ADD");
+        changeColorOfPriority(i);
       });
     });
 
-    // increase priority logic
-    function increasePriority(index) {
-      if (arr[index].priority < 5) {
+    decreaseBtn.forEach((btn, i) => {
+      btn.addEventListener("click", function () {
+        changePriorityLevel(i, "SUBTRACT");
+        changeColorOfPriority(i);
+      });
+    });
+
+    const changePriorityLevel = (index, operation) => {
+      if (operation === "ADD" && arr[index].priority < 5) {
         arr[index].priority++;
+      } else if (operation === "SUBTRACT" && arr[index].priority > 0) {
+        arr[index].priority--;
       }
       priorityBtns[index].innerHTML = arr[index].priority;
-    }
+    };
+
+    const changeColorOfPriority = (index) => {
+      // background-color logic (works when page loaded and after sorting is applied)
+      // background-color logic when sorting is applied is in the generateTodo function
+      let currentPriority = arr[index].priority;
+
+      if (currentPriority <= 1) {
+        priorityBtns[index].style.backgroundColor = "#8ac926";
+      } else if (currentPriority <= 3) {
+        priorityBtns[index].style.backgroundColor = "#ffca3a";
+      } else {
+        priorityBtns[index].style.backgroundColor = "#ff595e";
+      }
+    };
 
     // DECLARATION OF DELETE/DONE buttons
 
@@ -201,7 +218,6 @@ const createTodos = (arr) => {
               cardContainer.innerHTML = "";
               let displayCurrentTodoList = generateTodo(arr);
               cardContainer.innerHTML = displayCurrentTodoList;
-              console.log(arr);
               attachButtonListeners(arr);
             } else {
               cardDeleteDiv.style.visibility = "hidden";

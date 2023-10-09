@@ -50,6 +50,10 @@ img {
   display: block;
 }
 
+button {
+  outline: none;
+}
+
 #container {
   width: 100%;
   @include flex-align();

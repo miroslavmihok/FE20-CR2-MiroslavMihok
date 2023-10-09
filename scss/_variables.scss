@@ -1,7 +1,8 @@
 // COLORS
 
 $--clr-white: white;
-$--clr-lightgrey: lightgrey;
+$--clr-lightgrey: rgb(218, 218, 218);
+$--clr-lightgrey-secondary: rgb(198, 198, 198);
 $--clr-grey-transparent: rgba(128, 128, 128, 0.668);
 $--clr-grey: #495057;
 $--clr-darkgrey: #212529;
@@ -9,17 +10,30 @@ $--clr-black: black;
 
 $--clr-mediumturquoise: mediumturquoise;
 $--clr-green-transparent: #8ac9263e;
+$--clr-lightgreen: #b5cd92;
 $--clr-green: #8ac926;
 $--clr-yellow: #ffca3a;
+$--clr-lightred: #fea4a7;
 $--clr-red: #ff595e;
 
 // SHADOW
 
 $--shadow-card: 0px 0px 15px 3px rgba(62, 66, 66, 0.22);
+$--shadow-button: 0px 10px 14px -7px rgba(62, 66, 66, 0.22);
 
 // MIXINS
 
 @mixin flex-align() {
     display: flex;
     align-items: center;
+}
+
+@mixin submit-btn() {
+    padding: 0.2rem 0.5rem;
+    color: $--clr-white;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
 }

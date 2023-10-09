@@ -74,85 +74,87 @@
             class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-center pb-5 pt-5"
             id="container__body"
           >
-              <!-- start of CARD LAYOUT -->
-              <div class="todotask__card">
-                <!-- start of delete event -->
-                <div class="card__deleted">
-                  <p>Do you really want to delete Buy groceries todo?</p>
-                  <div class="card_delete_buttons">
-                    <button class="delete-btn">Yes</button>
-                    <button class="delete-btn">No</button>
-                  </div>
+            <!-- start of CARD LAYOUT -->
+            <div class="todotask__card">
+              <!-- start of delete event -->
+              <div class="card__deleted">
+                <p>Do you really want to delete Buy groceries todo?</p>
+                <div class="card_delete_buttons">
+                  <button class="delete-btn" title="deleteYesBtn">Yes</button>
+                  <button class="delete-btn" title="deleteNoBtn">No</button>
                 </div>
-                <!-- end of delete event -->
-                <!-- start of completed event -->
-                <div class="card__completed">
-                  <h3 class="completed_heading">Completed</h3>
-                </div>
-                <!-- end of completed event -->
-                <!-- start of CARD HEADER -->
-                <div class="card__header">
-                  <div class="card__header_task">
-                    <span>Task</span>
-                  </div>
-                  <div class="card__header_icons">
-                    <a href="#" aria-label="Bookmark task"
-                      ><i class="fa-regular fa-bookmark"></i
-                    ></a>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                  </div>
-                </div>
-                <!-- end of CARD HEADER -->
-                <!-- start of CARD MAIN -->
-                <div class="card__main">
-                  <img
-                    src="./assets/Converted_final/webp/groceries.webp"
-                    alt="groceries"
-                  />
-                  <h4>Buy groceries</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quos, asperiores.
-                  </p>
-                  <hr />
-                </div>
-                <!-- end of CARD MAIN -->
-                <!-- start of CARD INFO -->
-                <div class="card__info">
-                  <div class="card__info_priority">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span
-                      >Priority level:
-                      <span class="priority_level">0</span></span
-                    >
-                  </div>
-                  <div class="card__info_deadline">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <span
-                      >Deadline:
-                      <span id="deadline_date">27.01.2022</span></span
-                    >
-                  </div>
-                  <hr />
-                </div>
-                <!-- end of CARD INFO -->
-                <!-- start of CARD BUTTONS -->
-                <div class="card__buttons">
-                  <button class="button_delete" title="deleteButton">
-                    <i class="fa-solid fa-trash-can" style="color: #ffffff"></i>
-                    Delete
-                  </button>
-                  <button class="button_done" title="doneButton">
-                    <i
-                      class="fa-regular fa-circle-check"
-                      style="color: #ffffff"
-                    ></i>
-                    Done
-                  </button>
-                </div>
-                <!-- end of CARD BUTTONS -->
               </div>
-              <!-- end of CARD LAYOUT -->
+              <!-- end of delete event -->
+              <!-- start of completed event -->
+              <div class="card__completed">
+                <h3 class="completed_heading">Completed</h3>
+              </div>
+              <!-- end of completed event -->
+              <!-- start of CARD HEADER -->
+              <div class="card__header">
+                <div class="card__header_task">
+                  <span>Task</span>
+                </div>
+                <div class="card__header_icons">
+                  <a href="#" aria-label="Bookmark task"
+                    ><i class="fa-regular fa-bookmark"></i
+                  ></a>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+              <!-- end of CARD HEADER -->
+              <!-- start of CARD MAIN -->
+              <div class="card__main">
+                <img
+                  src="./assets/Converted_final/webp/groceries.webp"
+                  alt="groceries"
+                />
+                <h4>Buy groceries</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+                  asperiores.
+                </p>
+                <hr />
+              </div>
+              <!-- end of CARD MAIN -->
+              <!-- start of CARD INFO -->
+              <div class="card__info">
+                <div class="card__info_priority">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span
+                    >Priority level:
+                    <button class="priority_level_down"
+                      >-</button>
+                    <span class="priority_level">0</span></span
+                  ><button class="priority_level_up"
+                    >+</button>
+                </div>
+                <div class="card__info_deadline">
+                  <i class="fa-regular fa-calendar-days"></i>
+                  <span
+                    >Deadline: <span id="deadline_date">27.01.2022</span></span
+                  >
+                </div>
+                <hr />
+              </div>
+              <!-- end of CARD INFO -->
+              <!-- start of CARD BUTTONS -->
+              <div class="card__buttons">
+                <button class="button_delete" title="deleteButton">
+                  <i class="fa-solid fa-trash-can" style="color: #ffffff"></i>
+                  Delete
+                </button>
+                <button class="button_done" title="doneButton">
+                  <i
+                    class="fa-regular fa-circle-check"
+                    style="color: #ffffff"
+                  ></i>
+                  Done
+                </button>
+              </div>
+              <!-- end of CARD BUTTONS -->
+            </div>
+            <!-- end of CARD LAYOUT -->
           </div>
           <!-- end of MAIN BODY SECTION -->
         </div>

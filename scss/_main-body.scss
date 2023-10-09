@@ -54,13 +54,20 @@
     opacity: 0;
 
     .card_delete_buttons {
-      width: 50%;
+      width: 100%;
       @include flex-align();
       justify-content: space-evenly;
 
       button {
         border: none;
-        padding: 0.1rem 0.5rem;
+        border-radius: 0.3rem;
+        padding: 0.1rem 1.5rem;
+        outline: none;
+        background-color: $--clr-lightgrey-secondary;
+        box-shadow: $--shadow-button;
+        &:hover {
+          background-color: $--clr-lightgrey;
+        }
       }
     }
   }
@@ -142,6 +149,24 @@
         cursor: pointer;
         user-select: none;
       }
+
+      .priority_level_down {
+        width: 1.2rem;
+        border: none;
+        border-radius: 0.3rem;
+        padding: 0 0.3rem;
+        background-color: $--clr-lightgrey;
+        outline: none;
+      }
+
+      .priority_level_up {
+        width: 1.2rem;
+        border: none;
+        border-radius: 0.3rem;
+        padding: 0 0.3rem;
+        background-color: $--clr-lightgrey;
+        outline: none;
+      }
     }
 
     .card__info_deadline {
@@ -166,23 +191,19 @@
     gap: 0.5rem;
 
     .button_delete {
-      padding: 0.2rem 0.5rem;
-      color: $--clr-white;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      background-color: $--clr-red;
-      border: none;
-      border-radius: 0.2rem;
+      @include submit-btn();
+      background-color: $--clr-lightred;
+      &:hover {
+        background-color: $--clr-red;
+      }
     }
 
     .button_done {
-      padding: 0.2rem 0.5rem;
-      color: $--clr-white;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      background-color: $--clr-green;
-      border: none;
-      border-radius: 0.2rem;
+      @include submit-btn();
+      background-color: $--clr-lightgreen;
+      &:hover {
+        background-color: $--clr-green;
+      }
     }
   }
 }
