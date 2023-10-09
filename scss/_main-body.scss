@@ -7,10 +7,63 @@
   @include flex-align();
   flex-flow: column;
   margin-bottom: 0.7rem;
+  position: relative;
+  z-index: 1;
 
   -webkit-box-shadow: $--shadow-card;
   -moz-box-shadow: $--shadow-card;
   box-shadow: $--shadow-card;
+
+  .card__completed {
+    position: absolute;
+    top: 0;
+    height: 0%;
+    width: 100%;
+    @include flex-align();
+    flex-flow: column;
+    justify-content: center;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+
+    i {
+      font-size: 2.5rem;
+      text-shadow: rgba(31, 31, 31, 0.6) 0px 0px 4px;
+    }
+
+    h3 {
+      color: $--clr-white;
+      font-weight: 700;
+      text-shadow: rgba(31, 31, 31, 0.6) 0px 0px 4px;
+    }
+  }
+
+  .card__deleted {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    padding: 1rem;
+    @include flex-align();
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+
+    .card_delete_buttons {
+      width: 50%;
+      @include flex-align();
+      justify-content: space-evenly;
+
+      button {
+        border: none;
+        padding: 0.1rem 0.5rem;
+      }
+    }
+  }
 
   .card__header {
     width: 100%;
@@ -131,5 +184,12 @@
       border: none;
       border-radius: 0.2rem;
     }
+  }
+}
+
+.todo__opacity {
+  > :not(.card__completed) {
+    opacity: 0.05;
+    transition: opacity 0.5s ease;
   }
 }

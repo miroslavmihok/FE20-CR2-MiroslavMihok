@@ -1,4 +1,4 @@
-// ADDING TODO to CONTAINER_BODY
+// CONTAINER_BODY
 
 const cardContainer = document.querySelector("#container__body");
 
@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 const createTodos = (arr) => {
-  // PARSING JSON DATA and displaying CONTENT
+  // PARSING JSON DATA
   let arrStr = JSON.parse(arr);
 
   // Function to create the HTML Todo Cards based on given arguments
@@ -29,6 +29,17 @@ const createTodos = (arr) => {
         }
 
         return `<div class="col mb-3"><div class="todotask__card">
+              <div class="card__deleted">
+                <p>Do you really want to delete "${item.name}"?</p>
+                <div class="card_delete_buttons">
+                  <button class="delete-btn">Yes</button>
+                  <button class="delete-btn">No</button>
+                </div>
+              </div>
+              <div class="card__completed">
+                <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                <h3 class="completed_heading">Completed</h3>
+              </div>
             <div class="card__header">
               <div class="card__header_task">
                 <span>Task</span>
@@ -83,6 +94,8 @@ const createTodos = (arr) => {
       .join("");
   }
 
+  console.log(arrStr);
+
   // function to create a new Date for Deadlines
 
   function calculateFormattedDate(days) {
@@ -96,7 +109,7 @@ const createTodos = (arr) => {
 
   let displayDefaultTodo = generateTodo(arrStr);
   cardContainer.innerHTML = displayDefaultTodo;
-  attachPriorityButtonListeners(arrStr);
+  attachButtonListeners(arrStr);
 
   // filter items
 
@@ -113,41 +126,35 @@ const createTodos = (arr) => {
       cardContainer.innerHTML = "";
       let displayAscendingTodo = generateTodo(ascendingArr);
       cardContainer.innerHTML = displayAscendingTodo;
-      attachPriorityButtonListeners(ascendingArr);
-      console.log(ascendingArr);
+      attachButtonListeners(ascendingArr);
     } else if (e.currentTarget.value === "Descending") {
       filterIcon.classList = "fa-solid fa-arrow-down-wide-short";
       cardContainer.innerHTML = "";
       let displayDescendingTodo = generateTodo(descendingArr);
       cardContainer.innerHTML = displayDescendingTodo;
-      attachPriorityButtonListeners(descendingArr);
+      attachButtonListeners(descendingArr);
     } else {
       filterIcon.classList = "";
       cardContainer.innerHTML = "";
       let displayDefaultTodo = generateTodo(arrStr);
       cardContainer.innerHTML = displayDefaultTodo;
-      attachPriorityButtonListeners(arrStr);
+      attachButtonListeners(arrStr);
     }
   });
 
-  // Function to check priority content, when different sorting is applied
-
-  // function checkCurrentPriority()
-
   // attaching EVENT LISTENERS to default and new arrays
 
-  function attachPriorityButtonListeners(arr) {
-    // DECLARATION OF BUTTONS
+  function attachButtonListeners(arr) {
+    // DECLARATION OF PRIORITY buttons
     const priorityBtns = document.querySelectorAll(".priority_level");
 
     priorityBtns.forEach((btn, i) => {
       btn.addEventListener("click", function () {
         increasePriority(i);
 
-        // background-color logic
+        // background-color logic (works when page loaded and after sorting is applied)
+        // background-color logic when sorting is applied is in the generateTodo function
         let currentPriority = arr[i].priority;
-        console.log(`The currentPriority i is: ${i}`);
-        console.log(`The currentPriority var is: ${currentPriority}`);
 
         if (currentPriority <= 1) {
           btn.style.backgroundColor = "#8ac926";
@@ -163,9 +170,64 @@ const createTodos = (arr) => {
     function increasePriority(index) {
       if (arr[index].priority < 5) {
         arr[index].priority++;
-        console.log(`increase index is ${index}`);
       }
       priorityBtns[index].innerHTML = arr[index].priority;
     }
+
+    // DECLARATION OF DELETE/DONE buttons
+
+    const deleteBtns = document.querySelectorAll(".button_delete");
+    const doneBtns = document.querySelectorAll(".button_done");
+
+    deleteBtns.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        // selecting the deleted div
+        const cardDeleteDiv = btn
+          .closest(".todotask__card")
+          .querySelector(".card__deleted");
+        const currentTask = btn.closest(".todotask__card");
+        cardDeleteDiv.style.visibility = "visible";
+        cardDeleteDiv.style.opacity = "1";
+        cardDeleteDiv.style.height = "100%";
+        currentTask.classList.add("todo__opacity");
+        // deleting the item
+        const onDeleteAnswerBtns = btn
+          .closest(".todotask__card")
+          .querySelectorAll(".delete-btn");
+        onDeleteAnswerBtns.forEach(function (delBtn) {
+          delBtn.addEventListener("click", function () {
+            if (delBtn.textContent === "Yes") {
+              arr.splice(i, 1);
+              cardContainer.innerHTML = "";
+              let displayCurrentTodoList = generateTodo(arr);
+              cardContainer.innerHTML = displayCurrentTodoList;
+              console.log(arr);
+              attachButtonListeners(arr);
+            } else {
+              cardDeleteDiv.style.visibility = "hidden";
+              cardDeleteDiv.style.opacity = "0";
+              cardDeleteDiv.style.height = "0%";
+              currentTask.classList.remove("todo__opacity");
+            }
+          });
+        });
+      });
+    });
+
+    doneBtns.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        // setting background color to green on "done" button press
+        const currentTask = btn.closest(".todotask__card");
+        currentTask.classList.add("todo__opacity");
+        currentTask.style.backgroundColor = "#8ac9263e";
+        // visibility property change to visible on "done" button press
+        const cardCompletedDiv = btn
+          .closest(".todotask__card")
+          .querySelector(".card__completed");
+        cardCompletedDiv.style.visibility = "visible";
+        cardCompletedDiv.style.opacity = "1";
+        cardCompletedDiv.style.height = "100%";
+      });
+    });
   }
 };
