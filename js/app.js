@@ -153,6 +153,17 @@ const createTodos = (arr) => {
     const priorityBtns = document.querySelectorAll(".priority_level");
     const increaseBtn = document.querySelectorAll(".priority_level_up");
     const decreaseBtn = document.querySelectorAll(".priority_level_down");
+    const clearPriorityBtn = document.querySelector(".clear_priorities_button");
+
+    clearPriorityBtn.addEventListener("click", function () {
+      for (i = 0; i < arr.length; i++) {
+        arr[i].priority = 0;
+      }
+      cardContainer.innerHTML = "";
+      let displayCurrentTodoList = generateTodo(arr);
+      cardContainer.innerHTML = displayCurrentTodoList;
+      attachButtonListeners(arr);
+    });
 
     increaseBtn.forEach((btn, i) => {
       btn.addEventListener("click", function () {

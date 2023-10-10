@@ -55,6 +55,9 @@
           <!-- start of MAIN HEADER SECTION -->
           <div class="container__header">
             <h3>Weekly Tasks</h3>
+            <div class="clear_priorities">
+              <button class="clear_priorities_button">Clear all priority levels</button>
+            </div>
             <div class="container__header_sorting">
               <select
                 name="select_priority"
@@ -62,6 +65,7 @@
                 aria-label="select a priority"
               >
                 <option value="none" selected hidden>Sort by priority</option>
+                <option value="No Sorting">No Sorting</option>
                 <option value="Ascending">Ascending</option>
                 <option value="Descending">Descending</option>
               </select>

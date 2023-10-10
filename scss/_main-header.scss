@@ -3,22 +3,35 @@
 @import "variables";
 
 .container__header {
-    width: 100%;
-    height: fit-content;
-    @include flex-align();
-    justify-content: space-between;
-    padding: 1rem 0;
+  width: 100%;
+  height: fit-content;
+  @include flex-align();
+  justify-content: space-between;
+  padding: 1rem 0;
 
-    .container__header_sorting {
-
-        #select_priority {
-            border: none;
-            margin-right: 1rem;
-            padding: 0.2rem;
-        }
-
-        span {
-            margin-right: 1rem;
-        }
+  .clear_priorities_button {
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    outline: none;
+    background-color: $--clr-lightgrey-secondary;
+    box-shadow: $--shadow-button;
+    &:hover {
+      background-color: $--clr-lightgrey;
     }
+  }
+
+  .container__header_sorting {
+    #select_priority {
+      border: none;
+      margin-right: 1rem;
+      padding: 0.2rem;
+    }
+
+    span {
+      margin-right: 1rem;
+    }
+  }
 }
