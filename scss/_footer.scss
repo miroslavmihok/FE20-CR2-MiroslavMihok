@@ -32,6 +32,8 @@ footer {
             color: $--clr-white;
             margin: 1rem 0 3rem 0;
             font-size: 0.8rem;
+            @include flex-align();
+            flex-flow: column;
 
             input {
                 height: 1.5rem;
@@ -39,6 +41,7 @@ footer {
                 border: none;
                 padding: 0 0.7rem;
                 border-radius: 0.3rem;
+                margin-bottom: 0.5rem;
             }
 
             button {

@@ -3,11 +3,20 @@
 @import "variables";
 
 .container__header {
-  width: 100%;
-  height: fit-content;
-  @include flex-align();
-  justify-content: space-between;
-  padding: 1rem 0;
+  .container__header_top {
+    width: 100%;
+    height: fit-content;
+    @include flex-align();
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .container__header_bottom {
+    width: 100%;
+    height: fit-content;
+    @include flex-align();
+    justify-content: center;
+  }
 
   .clear_priorities_button {
     font-weight: 600;

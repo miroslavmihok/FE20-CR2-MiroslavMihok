@@ -151,7 +151,7 @@ main {
   flex: 1;
 }
 
-.container__header {
+.container__header .container__header_top {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -159,6 +159,14 @@ main {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
+}
+.container__header .container__header_bottom {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .container__header .clear_priorities_button {
   font-weight: 600;
@@ -411,6 +419,9 @@ footer .footer_top .footer__newsletter {
   color: white;
   margin: 1rem 0 3rem 0;
   font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 footer .footer_top .footer__newsletter input {
   height: 1.5rem;
@@ -418,6 +429,7 @@ footer .footer_top .footer__newsletter input {
   border: none;
   padding: 0 0.7rem;
   border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 footer .footer_top .footer__newsletter button {
   padding: 0.3rem;
